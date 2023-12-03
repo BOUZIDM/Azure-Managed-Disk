@@ -1,0 +1,12 @@
+Azure managed disk
+
+# Define variables
+         $location = "YourAzureRegion"  # Replace with your Azure region
+         $resourceGroupName = "YourResourceGroupName"  # Replace with your resource group name
+         $diskName = 'az104-03c-disk1'
+
+# Create disk configuration
+         $diskConfig = New-AzDiskConfig -Location $location -CreateOption Empty -DiskSizeGB 32 -Sku Standard_LRS
+
+# Create the disk
+         New-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -Disk $diskConfig
